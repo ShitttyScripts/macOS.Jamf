@@ -38,12 +38,8 @@ modelCheck() {
 		echo "<result>Mojave</result>"
 	elif [[ $modelMajorVersion -ge $2 && $(/usr/bin/bc <<< "${osVersion} >= 8") -eq 1 ]]; then
 		echo "<result>High Sierra</result>"
-	elif [[ $modelMajorVersion -ge $2 && $(/usr/bin/bc <<< "${osVersion} >= 7.5") -eq 1 ]]; then
-		echo "<result>Sierra / OS Limitation</result>"  # (Current OS Limitation, 10.13 Compatible)
-	elif [[ $modelMajorVersion -ge $1 && $(/usr/bin/bc <<< "${osVersion} >= 6.8") -eq 1  ]]; then
-		echo "<result>El Capitan</result>"
 	else
-		echo "<result>Model or Current OS Not Supported</result>"
+		echo "<result>Max OS Sierra</result>"
 	fi
 }
 
@@ -75,12 +71,8 @@ macProModelCheck() {
 		macProResult=$(echo "${macProResult}" | /usr/bin/sed "s/,$//")
 		echo "${macProResult}</result>"
 
-	elif [[ $modelMajorVersion -ge $2 && $(/usr/bin/bc <<< "${osVersion} >= 7.5") -eq 1 ]]; then
-		echo "<result>Sierra / OS Limitation</result>"  # (Current OS Limitation, 10.13 Compatible)
-	elif [[ $modelMajorVersion -ge $1 && $(/usr/bin/bc <<< "${osVersion} >= 6.8") -eq 1  ]]; then
-		echo "<result>El Capitan</result>"
 	else
-		echo "<result>Model or Current OS Not Supported</result>"
+		echo "<result>Max OS Sierra</result>"
 	fi
 }
 
